@@ -1,6 +1,6 @@
 #!/bin/bash
 source /ver/bundle/scripts/globals.conf 2
-
+#adding sme comment here
 #exports
 export LC_ALL=C
 percentage=90
