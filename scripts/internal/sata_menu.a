@@ -1,0 +1,37 @@
+#last modified by:   shay daniel
+#last modified date: 08/04/2014
+
+#serial --speed=115200 --device=/dev/ttyS0
+terminal --timeout=0 serial console 
+default 0
+timeout 10
+#in addtion to get the boot entry via local eeprom. The command must be after default command
+#eeprom
+
+### BEGIN DEBIAN KERNELS LIST
+title     VERSION A
+root      (hd0,1)
+kernel    /vmlinuz root=/dev/sda5 ro noquiet nosplash text console=ttyS0,115200
+initrd    /initrd.img
+
+title     VERSION B
+root      (hd0,2)
+kernel    /vmlinuz root=/dev/sda8 ro noquiet nosplash text console=ttyS0,115200
+initrd    /initrd.img
+
+#title     FULL NFS
+#ifconfig --server=1.1.1.1 --mask=255.255.255.0 --address=1.1.1.2 --gateway=1.1.1.254
+#root=(nd)
+#kernel=(nd)/vmlinuz root=/dev/nfs nfsroot=1.1.1.1:/home/mrv/root-fs-x86 ip=1.1.1.2:1.1.1.1:194.90.136.254:255.255.255.0:OP-X:eth0 dns=194.90.136.1 ro console=ttyS0,115200
+#initrd=(nd)/initrd.img.nfs
+
+#title     KERNEL local (VERSION A), File SYSTEM NFS
+#root      (hd0,1)
+#kernel    /vmlinuz root=/dev/nfs nfsroot=1.1.1.1:/home/mrv/root-fs-x86 ip=1.1.1.2:1.1.1.1:194.90.136.254:255.255.255.0:OP-X:eth0 dns=194.90.136.1 ro console=ttyS0,115200
+#initrd    /initrd.img.nfs
+
+#title     KERNEL local (VERSION B), File SYSTEM NFS
+#root      (hd0,2)
+#kernel    /vmlinuz root=/dev/nfs nfsroot=1.1.1.1:/home/mrv/root-fs-x86 ip=1.1.1.2:1.1.1.1:194.90.136.254:255.255.255.0:OP-X:eth0 dns=194.90.136.1 ro console=ttyS0,115200
+#initrd    /initrd.img.nfs
+
