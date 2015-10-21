@@ -1,2 +1,2 @@
 # upgrade_director
-#readme ? 
+#readme ? please read
