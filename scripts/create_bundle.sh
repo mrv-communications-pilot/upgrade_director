@@ -8,7 +8,7 @@ white='\e[1;37m'
 blue='\e[1;34m'
 nc='\e[0m'
 
-#exports
+#exports, will effect all bash 
 export LC_ALL=C
 
 
